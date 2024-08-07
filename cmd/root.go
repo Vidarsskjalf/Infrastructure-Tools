@@ -4,7 +4,8 @@ Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"infraTools/cmd/activeDirectory"
+	"infraTools/cmd/network"
+	"infraTools/cmd/system"
 	"os"
 	"github.com/spf13/cobra"
 )
@@ -16,7 +17,7 @@ var rootCmd = &cobra.Command{
 	Long: `
 	Infrastructure Tools
 
-infraTools is a robust command-line interface (CLI) utility designed specifically for our infrastructure team.
+Infrastructure Tools is a robust command-line interface (CLI) utility designed specifically for our infrastructure team.
 It provides a comprehensive toolbox for managing and automating various infrastructure and user services tasks.
 This tool streamlines workflows, enhances productivity,and reduces the complexity of routine operations.`,
 
@@ -35,7 +36,8 @@ func Execute() {
 }
 
 func addSubcommandPalettes() {
-	rootCmd.AddCommand(activeDirectory.ActiveDirectoryCmd)
+	rootCmd.AddCommand(system.SystemCmd)
+	rootCmd.AddCommand(network.NetworkCmd)
 }
 
 func init() {

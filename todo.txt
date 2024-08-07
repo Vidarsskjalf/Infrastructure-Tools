@@ -1,0 +1,3 @@
+Write domain admins script
+Test nmap public/private CMDs
+Implement GOTH authenticator: https://github.com/markbates/goth

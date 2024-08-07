@@ -2,17 +2,19 @@
 Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 
 */
-package activeDirectory
+package network
 
 import (
 	"github.com/spf13/cobra"
 )
 
-// ActiveDirectoryCmd represents the activeDirectory command
-var ActiveDirectoryCmd = &cobra.Command{
-	Use:   "activeDirectory",
-	Short: "activeDirectory is a palette that contains Active Directory based commands",
-	Long: ``,
+// GeoipCmd represents the geoip command
+var GeoipCmd = &cobra.Command{
+	Use:   "geoip",
+	Short: "A tool to determine the geographical location of an ip address",
+	Long: `
+	IP Geolocation Tool
+	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		cmd.Help()
 	},
@@ -24,9 +26,9 @@ func init() {
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// activeDirectoryCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// geoipCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// activeDirectoryCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// geoipCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
