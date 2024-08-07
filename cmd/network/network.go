@@ -4,6 +4,7 @@ Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 package network
 
 import (
+	"infraTools/cmd/network/geoip"
 	"infraTools/cmd/network/nmap"
 	"github.com/spf13/cobra"
 )
@@ -26,9 +27,9 @@ this module has you covered.`,
 }
 
 func addSubcommandPalettes() {
-	NetworkCmd.AddCommand(network.PublicCmd)
-	NetworkCmd.AddCommand(network.PrivateCmd)
-	NetworkCmd.AddCommand(GeoipCmd)
+	NetworkCmd.AddCommand(nmap.PublicCmd)
+	NetworkCmd.AddCommand(nmap.PrivateCmd)
+	NetworkCmd.AddCommand(geoip.GeoipCmd)
 }
 
 func init() {
