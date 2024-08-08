@@ -2,18 +2,30 @@
 Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 
 */
-package geoip
+package geolocate
 
 import (
 	"github.com/spf13/cobra"
 )
 
-// GeoipCmd represents the geoip command
-var GeoipCmd = &cobra.Command{
-	Use:   "geoip",
-	Short: "A tool to determine the geographical location of an ip address",
+
+type GeoResponse struct {
+	IP		string `json:"ip"`
+	City	string `json:"city"`
+	Region	string `json:"region"`
+	Country	string `json:"country"`
+	Loc		string `json:"loc"`
+	Org		string `json:"org"`
+}
+
+
+
+// GeolocateCmd represents the geoip command
+var GeolocateCmd = &cobra.Command{
+	Use:   "geolocate [ip]",
+	Short: "Geolocate an IP address",
 	Long: `
-	IP Geolocation Tool
+	Geolocation Tool
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		cmd.Help()

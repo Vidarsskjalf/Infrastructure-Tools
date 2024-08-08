@@ -4,7 +4,7 @@ Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 package network
 
 import (
-	"infraTools/cmd/network/geoip"
+	"infraTools/cmd/network/geolocate"
 	"infraTools/cmd/network/nmap"
 	"github.com/spf13/cobra"
 )
@@ -29,7 +29,7 @@ this module has you covered.`,
 func addSubcommandPalettes() {
 	NetworkCmd.AddCommand(nmap.PublicCmd)
 	NetworkCmd.AddCommand(nmap.PrivateCmd)
-	NetworkCmd.AddCommand(geoip.GeoipCmd)
+	NetworkCmd.AddCommand(geolocate.GeolocateCmd)
 }
 
 func init() {
