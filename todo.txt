@@ -1,3 +1,2 @@
-Finish writing GoelocateCmd
 Write domain admins script
 Implement GOTH authenticator: https://github.com/markbates/goth

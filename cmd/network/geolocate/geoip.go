@@ -9,7 +9,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-
 type GeoResponse struct {
 	IP		string `json:"ip"`
 	City	string `json:"city"`
@@ -28,7 +27,7 @@ var GeolocateCmd = &cobra.Command{
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		ip := args[0]
-		api_key := ""
+		api_key := "Enter api key"
 		url := fmt.Sprintf("https://ipinfo.io/%s?token=%s", ip, api_key)
 
 		client := resty.New()
