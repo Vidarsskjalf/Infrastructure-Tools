@@ -19,8 +19,6 @@ type GeoResponse struct {
 	Org		string `json:"org"`
 }
 
-
-
 // GeolocateCmd represents the geoip command
 var GeolocateCmd = &cobra.Command{
 	Use:   "geolocate [ip]",
@@ -45,6 +43,13 @@ var GeolocateCmd = &cobra.Command{
 		if err := json.Unmarshal(resp.Body(), &geoIP); err != nil {
 			log.Fatalf("Error parsing response: %v", err)
 		}
+
+		fmt.Printf("IP: %s\n", geoIP.IP)
+		fmt.Printf("City: %s\n", geoIP.City)
+		fmt.Printf("Region: %s\n", geoIP.Region)
+		fmt.Printf("Country: %s\n", geoIP.Country)
+		fmt.Printf("Location: %s\n", geoIP.Loc)
+		fmt.Printf("Organization: %s\n", geoIP.Org)
 	},
 }
 
