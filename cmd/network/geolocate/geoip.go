@@ -1,10 +1,11 @@
-/*
-Copyright © 2024 NAME HERE <EMAIL ADDRESS>
-
-*/
 package geolocate
 
 import (
+	"encoding/json"
+	"fmt"
+	"log"
+
+	"github.com/go-resty/resty/v2"
 	"github.com/spf13/cobra"
 )
 
@@ -28,7 +29,22 @@ var GeolocateCmd = &cobra.Command{
 	Geolocation Tool
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
-		cmd.Help()
+		ip := args[0]
+		api_key := ""
+		url := fmt.Sprintf("https://ipinfo.io/%s?token=%s", ip, api_key)
+
+		client := resty.New()
+		resp, err := client.R().
+			SetHeader("Accept", "application/json").
+			Get(url)
+		if err != nil {
+			log.Fatalf("Error making request: %v", err)
+		}
+
+		var geoIP GeoResponse
+		if err := json.Unmarshal(resp.Body(), &geoIP); err != nil {
+			log.Fatalf("Error parsing response: %v", err)
+		}
 	},
 }
 
