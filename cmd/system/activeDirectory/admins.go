@@ -5,7 +5,9 @@ Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 package system
 
 import (
+	"fmt"
 	"github.com/spf13/cobra"
+	"os/exec"
 )
 
 // AdminsCmd represents the domainAdmins command
@@ -16,7 +18,13 @@ var AdminsCmd = &cobra.Command{
 	AD Domain admins
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
-		cmd.Help()
+		scriptPath := "scripts/activeDirectory/admins.sh"
+		out, err := exec.Command("bin/bash", scriptPath).Output()
+		if err != nil {
+			fmt.Printf("Error executing script: %v\n", err)
+			return
+		}
+		fmt.Printf("Script output: %s\n", string(out))
 	},
 }
 
